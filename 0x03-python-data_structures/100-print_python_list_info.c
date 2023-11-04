@@ -1,12 +1,12 @@
 #include <Python.h>
-#include <listobject.h>
 
 void print_python_list_info(PyObject *p) {
     if (PyList_Check(p)) {
-        PyListObject *list = (PyListObject *)p;
         Py_ssize_t size = PyList_GET_SIZE(p);
 
         printf("[*] Size of the Python List = %ld\n", size);
+
+        PyListObject *list = (PyListObject *)p;
         printf("[*] Allocated = %ld\n", list->allocated);
 
         for (Py_ssize_t i = 0; i < size; i++) {
