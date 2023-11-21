@@ -1,20 +1,15 @@
 #!/usr/bin/python3
-""" define a class Square"""
+"""class square"""
 
 
-class Square():
-    """ the class square """
-    def __init__(self, __size=0) -> None:
-        if type(__size) != int:
-            raise TypeError("size must be an integer")
-        elif __size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            self.__size = __size
-
+class Square:
+    """private instance and raise errors for exception"""
+    def __init__(self, size=0):
+        self.__size = size
 
     @property
     def size(self):
+        """Getter"""
         return self.__size
 
     @size.setter
@@ -27,6 +22,6 @@ class Square():
         else:
             self.__size = value
 
-
     def area(self):
-        return (self.__size * self.__size)
+        """returns the squarea area"""
+        return self.__size ** 2
