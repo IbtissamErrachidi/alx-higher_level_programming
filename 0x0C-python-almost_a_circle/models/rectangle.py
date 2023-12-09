@@ -15,40 +15,107 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """gets the width"""
+        '''
+            Returning private attribute
+        '''
         return self.__width
 
     @width.setter
     def width(self, value):
-        """sets the width"""
+        '''
+            Setting private attribute
+        '''
+        self.setter_validation("width", value)
         self.__width = value
 
     @property
     def height(self):
-        """gets the height"""
+        '''
+            Returning private attribute
+        '''
         return self.__height
 
     @height.setter
     def height(self, value):
-        """sets the height"""
-            self.__height = value
+        '''
+            Setting private attribute
+        '''
+        self.setter_validation("height", value)
+        self.__height = value
 
     @property
     def x(self):
-        """gets the value x"""
+        '''
+            Returning private attribute
+        '''
         return self.__x
 
     @x.setter
     def x(self, value):
-        """sets the value x"""
-            self.__x = value
+        '''
+            Setting private attribute
+        '''
+        self.setter_validation("x", value)
+        self.__x = value
 
     @property
     def y(self):
-        """gets the value y"""
+        '''
+            Returning private attribute
+        '''
         return self.__y
 
     @y.setter
     def y(self, value):
-        """sets the value y"""
-            self.__y = value
+        '''
+            Setting private attribute
+        '''
+        self.setter_validation("y", value)
+        self.__y = value
+
+
+    def area(self):
+        """gets the area"""
+        return self.__height * self.__width
+
+
+
+    @validation
+    def setter_validation(attribute, value):
+        if type(value) != int:
+            raise TypeError("{} must be an integer".format(attribute))
+        if attribute == "x" or attribute == "y":
+            if value < 0:
+                raise ValueError("{} must be >= 0".format(attribute))
+        elif value <= 0:
+            raise ValueError("{} must be > 0".format(attribute))
+
+
+    def display(self):
+        '''
+            representation # of the rectangle
+        '''
+        rectangle = ""
+        print("\n" * self.y, end="")
+        for i in range(self.height):
+            rectangle += (" " * self.x) + ("#" * self.width) + "\n"
+        print(rectangle, end="")
+
+ def update(self, *args, **kwargs):
+        '''
+            Updates the arguments in the class
+        '''
+        if len(args) == 0:
+            for key, val in kwargs.items():
+                self.__setattr__(key, val)
+            return
+        try:
+            self.id = args[0]
+            self.width = args[1]
+            self.height = args[2]
+            self.x = args[3]
+            self.y = args[4]
+        except IndexError:
+            pass
+
+
