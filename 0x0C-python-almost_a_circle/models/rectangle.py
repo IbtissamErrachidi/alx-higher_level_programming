@@ -79,7 +79,7 @@ class Rectangle(Base):
         return self.__height * self.__width
 
 
-    
+    @staticmethod    
     def setter_validation(self,attribute, value):
         if type(value) != int:
             raise TypeError("{} must be an integer".format(attribute))

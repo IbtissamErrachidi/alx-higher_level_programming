@@ -28,19 +28,12 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
-#    def __str__(self):
-#        """module string represation of square
-#        """
-#        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id,
-#                                                         self.x,
-#                                                         self.y,
-#                                                         self.width)
 
-    def __str__(self):
-        """print string"""
-#        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
-
+     def __str__(self):
+        """custom __str__ method for Square"""
+        return (f"[Square] ({self.id}) "
+                f"{self.x}/{self.y} - "
+                f"{self.width}")
 
 
 
