@@ -79,9 +79,8 @@ class Rectangle(Base):
         return self.__height * self.__width
 
 
-
-    @validation
-    def setter_validation(attribute, value):
+    
+    def setter_validation(self,attribute, value):
         if type(value) != int:
             raise TypeError("{} must be an integer".format(attribute))
         if attribute == "x" or attribute == "y":
@@ -101,7 +100,7 @@ class Rectangle(Base):
             rectangle += (" " * self.x) + ("#" * self.width) + "\n"
         print(rectangle, end="")
 
- def update(self, *args, **kwargs):
+    def update(self, *args, **kwargs):
         '''
             Updates the arguments in the class
         '''
@@ -118,4 +117,25 @@ class Rectangle(Base):
         except IndexError:
             pass
 
+    def __str__(self):
+        '''
+            Overwritting the str method
+        '''
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
+                                                       self.width, self.height)
 
+
+
+    def to_dictionary(self):
+        '''
+            Returns a dictionary representation of this class
+        '''
+        return {'x': getattr(self, "x"),
+                'y': getattr(self, "y"),
+                'id': getattr(self, "id"),
+                'height': getattr(self, "height"),
+                'width': getattr(self, "width")}
+    @classmethod
+    def create(cls, **attributes):
+        """Creates and returns a new instance of the class with the given attributes."""
+        return cls(**attributes)

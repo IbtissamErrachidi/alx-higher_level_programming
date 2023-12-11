@@ -27,15 +27,23 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
+#    def __str__(self):
+#        """module string represation of square
+#        """
+#        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id,
+#                                                         self.x,
+#                                                         self.y,
+#                                                         self.width)
+
     def __str__(self):
-        """module string represation of square
-        """
-        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id,
-                                                         self.x,
-                                                         self.y,
+        """print string"""
+#        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
 
 
-	def update(self, *args, **kwargs):
+
+
+    def update(self, *args, **kwargs):
         """module update square
         """
         if len(args):
@@ -51,4 +59,4 @@ class Square(Rectangle):
         else:
             for key, value in kwargs.items():
                 if hasattr(self, key) is True:
-                    setattr(self, key, value)                                                         self.width)
+                    setattr(self, key, value)
