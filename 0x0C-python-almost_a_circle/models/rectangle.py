@@ -124,18 +124,3 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
                                                        self.width, self.height)
 
-
-
-    def to_dictionary(self):
-        '''
-            Returns a dictionary representation of this class
-        '''
-        return {'x': getattr(self, "x"),
-                'y': getattr(self, "y"),
-                'id': getattr(self, "id"),
-                'height': getattr(self, "height"),
-                'width': getattr(self, "width")}
-    @classmethod
-    def create(cls, **attributes):
-        """Creates and returns a new instance of the class with the given attributes."""
-        return cls(**attributes)
