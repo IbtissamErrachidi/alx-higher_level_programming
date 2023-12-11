@@ -1,10 +1,16 @@
 #!/usr/bin/python3
-""" class rectangle """
+'''
+    Class Rectangle
+'''
 from models.base import Base
 
 
 class Rectangle(Base):
-    """class Rectangle"""
+    '''
+        Defining the Rectangle class
+        Inherits from:
+            Base
+    '''
 
     def __init__(self, width, height, x=0, y=0, id=None):
         self.width = width
@@ -73,26 +79,15 @@ class Rectangle(Base):
         self.setter_validation("y", value)
         self.__y = value
 
-
     def area(self):
-        """gets the area"""
-        return self.__height * self.__width
-
-
-    @staticmethod
-    def setter_validation(self,attribute, value):
-        if type(value) != int:
-            raise TypeError("{} must be an integer".format(attribute))
-        if attribute == "x" or attribute == "y":
-            if value < 0:
-                raise ValueError("{} must be >= 0".format(attribute))
-        elif value <= 0:
-            raise ValueError("{} must be > 0".format(attribute))
-
+        '''
+            Returns the area of the rectangle
+        '''
+        return (self.height * self.width)
 
     def display(self):
         '''
-            representation # of the rectangle
+            Prints to stdout the representation of the rectangle
         '''
         rectangle = ""
         print("\n" * self.y, end="")
@@ -116,6 +111,26 @@ class Rectangle(Base):
             self.y = args[4]
         except IndexError:
             pass
+
+    def to_dictionary(self):
+        '''
+            Returns a dictionary representation of this class
+        '''
+        return {'x': getattr(self, "x"),
+                'y': getattr(self, "y"),
+                'id': getattr(self, "id"),
+                'height': getattr(self, "height"),
+                'width': getattr(self, "width")}
+
+    @staticmethod
+    def setter_validation(attribute, value):
+        if type(value) != int:
+            raise TypeError("{} must be an integer".format(attribute))
+        if attribute == "x" or attribute == "y":
+            if value < 0:
+                raise ValueError("{} must be >= 0".format(attribute))
+        elif value <= 0:
+            raise ValueError("{} must be > 0".format(attribute))
 
     def __str__(self):
         '''

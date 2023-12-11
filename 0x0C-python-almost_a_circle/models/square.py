@@ -1,56 +1,68 @@
 #!/usr/bin/python3
-"""Define Rectangle Class
-"""
+"""class Square"""
 
-from models.base import Base
-from models.rectangle import Rectangle
+from .rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """Module Representation of Square
-"""
+    """Representation of a Square"""
 
     def __init__(self, size, x=0, y=0, id=None):
-        """Initialization a Square
-        """
+        """class constructor"""
         super().__init__(size, size, x, y, id)
 
-    @property
-    def size(self):
-        """module Square size getter
-        """
-        return self.width
-
-    @size.setter
-    def size(self, value):
-        """module Square size setter
-        """
-        self.width = value
-        self.height = value
-
-
-     def __str__(self):
+    def __str__(self):
         """custom __str__ method for Square"""
         return (f"[Square] ({self.id}) "
                 f"{self.x}/{self.y} - "
                 f"{self.width}")
 
+    @property
+    def size(self):
+        """size getter method"""
+        return self.width
 
+    @size.setter
+    def size(self, value):
+        """size setter method"""
+        self.width = value
+        self.height = value
 
     def update(self, *args, **kwargs):
-        """module update square
-        """
-        if len(args):
-            for i, arg in enumerate(args):
-                if i == 0:
-                    self.id = arg
-                elif i == 1:
-                    self.size = arg
-                elif i == 2:
-                    self.x = arg
-                elif i == 3:
-                    self.y = arg
-        else:
+        """updates values of the Square instance from args or kwargs"""
+        if args and len(args) > 0:
+            if len(args) > 0:
+                self.id = args[0]
+            if len(args) > 1:
+                self.size = args[1]
+            if len(args) > 2:
+                self.x = args[2]
+            if len(args) > 3:
+                self.y = args[3]
+        elif kwargs:
             for key, value in kwargs.items():
-                if hasattr(self, key) is True:
-                    setattr(self, key, value)
+                setattr(self, key, value)
+
+    def to_dictionary(self):
+        """returns the dictionary representation of the Square instance"""
+        return {
+                "id": self.id,
+                "size": self.width,
+                "x": self.x,
+                "y": self.y
+                }
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save to file csv"""
+        pass
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """load from file csv"""
+        pass
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """draw shapes"""
+        pass
