@@ -5,12 +5,14 @@ const converted = parseInt(argument);
 
 if (!isNaN(converted)) {
     for (let i = 0; i < converted; i++) {
+	let str = '';
         for (let j = 0; j < converted; j++) {
-            process.stdout.write('x'); // Utilisez process.stdout.write pour imprimer sans ajouter de nouvelle ligne
+            str += 'x';
         }
-        console.log(); // Nouvelle ligne après chaque ligne d'x
+        console.log(str);
     }
-} else if (typeof(argument) === 'string') { // Utilisez '===' pour comparer le type de variable
+} else if (typeof(argument) === 'string')
+{
     process.stdout.write('Missing size');
 }
 
