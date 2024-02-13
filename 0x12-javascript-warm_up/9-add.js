@@ -1,12 +1,7 @@
 #!/usr/bin/node
-const first = process.argv[2];
-const convert1 = parseInt(first);
-const second = process.argv[3];
-const convert2 = parseInt(second);
-function add(a, b){
-    if(!isNaN(a) && !isNaN(b)){
-        return a+b;
-     }
+const arg1 = parseInt(process.argv[2]);
+const arg2 = parseInt(process.argv[3]);
+function add (a, b) {
+  return a + b;
 }
-
-console.log(add(convert1,convert2));
+console.log(add(arg1, arg2));
