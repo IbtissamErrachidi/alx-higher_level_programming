@@ -7,3 +7,4 @@ if (!isNaN(arg)) {
     console.log("Not a number");
 }
 
+
