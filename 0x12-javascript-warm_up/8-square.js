@@ -13,6 +13,6 @@ if (!isNaN(converted)) {
     }
 } else if (typeof(argument) === 'string')
 {
-    process.stdout.write('Missing size');
+    console.log('Missing size');
 }
 
