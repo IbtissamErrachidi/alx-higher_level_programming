@@ -4,8 +4,6 @@ const convert1 = parseInt(first);
 const second = process.argv[3];
 const convert2 = parseInt(second);
 function add(a, b){
-    a = convert1;
-    b = convert2;
     if(isNaN(a) || isNaN(b)){
         console.log('NaN');
     }
