@@ -2,19 +2,17 @@
 
 const _Square = require('./5-square');
 
-class Square extends Rectangle {
-   constructor(size){
-        super(size,size);
-    }
+class Square extends _Square {
     charPrint(c){
             if (typeof c === 'undefined') {
               this.print();
             } else {
                 for (let i = 0; i < this.height; i++) {
+                    str = '';
                     for (let j = 0; j < this.width; j++) {
-                        process.stdout.write(c);
+                        str += c;
                     }
-                    console.log();
+                    console.log(str);
                 }
     
             }
