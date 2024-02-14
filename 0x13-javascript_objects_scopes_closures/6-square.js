@@ -1,4 +1,6 @@
-t _Square = require('./5-square');
+#!/usr/bin/node
+
+const _Square = require('./5-square');
 
 class Square extends _Square {
   charPrint (c) {
