@@ -3,14 +3,10 @@
 import urllib.request
 
 if __name__ == "__main__":
-    # Définir l'URL cible
-    url = 'https://alx-intranet.hbtn.io/status'
 
-    # Créer une requête GET
-    req = urllib.request.Request(url, method='GET')
 
     # Envoyer la requête et lire la réponse
-    with urllib.request.urlopen(req) as response:
+    with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as response:
         # Lire le contenu de la réponse
         data = response.read()
         
