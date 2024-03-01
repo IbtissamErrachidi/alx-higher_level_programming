@@ -1,19 +1,13 @@
 #!/usr/bin/python3
 """Fetches a URL."""
-import urllib.request
+import urllib.request as request
+
 
 if __name__ == "__main__":
-
-
-    # Envoyer la requête et lire la réponse
-    with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as response:
-	if response.readable():
-        	# Lire le contenu de la réponse
-        	data = response.read()
-        
-        	# Afficher le contenu de la réponse avec le format spécifié
-        	print("Body response:")
-       		print("\t- type: {}".format(type(data)))
-        	print("\t- content: {}".format(data))
-        	print("\t- utf8 content: {}".format(data.decode("utf-8")))
-
+    with request.urlopen("https://alx-intranet.hbtn.io/status") as response:
+        if response.readable():
+            data = response.read()
+            print("Body response:")
+            print("\t- type: {}".format(type(data)))
+            print("\t- content: {}".format(data))
+            print("\t- utf8 content: {}".format(data.decode("utf-8")))
